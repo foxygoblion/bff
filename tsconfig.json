@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["typings", "./node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "@interface/*": ["interface/*"],
+      "@config/*": ["config/*"],
+      "@middlewares/*": ["middlewares/*"]
+    },
+    "lib": ["ES2015", "DOM"]
+  },
+  "include": ["**/*"]
+}
