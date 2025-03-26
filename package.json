@@ -10,15 +10,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/lodash": "^4.17.16",
     "awilix": "^12.0.5",
     "awilix-koa": "^11.1.0",
+    "co": "^4.6.0",
     "koa": "^2.16.0",
     "koa-swig": "^2.2.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "log4js": "^6.9.1",
+    "swig": "^1.4.2"
   },
   "devDependencies": {
+    "@types/co": "^4.6.6",
     "@types/koa": "^2.15.0",
+    "@types/koa-static": "^4.0.4",
     "@types/module-alias": "^2.0.4",
-    "@types/node": "^22.13.13"
+    "@types/node": "^22.13.13",
+    "@types/swig": "^0.0.34"
   }
 }

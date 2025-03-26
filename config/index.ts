@@ -1,4 +1,4 @@
-import {extend} from 'lodash';
+import { assignIn } from 'lodash';
 import { join } from 'path'
 let config = {
     viewDir: join(__dirname, '..', 'views'),
@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') {
     let localConfig = {
         port: 8081,
     };
-    config = extend(config, localConfig)
+    config = assignIn(config, localConfig)
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -18,6 +18,6 @@ if (process.env.NODE_ENV === 'production') {
         port: 8082,
         memoryFlag: 'memory'
     };
-    config = extend(config, prodConfig);
+    config = assignIn(config, prodConfig);
 }
 export default config;
