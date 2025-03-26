@@ -5,6 +5,8 @@
     "noImplicitThis": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["typings", "./node_modules/@types"],
     "baseUrl": "./",
