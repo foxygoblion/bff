@@ -1,9 +1,9 @@
-import {GET, route} from 'awilix-koa';
+import { GET, route } from 'awilix-koa';
 import { Context } from '@interface/IKoa';
 
 @route('/')
 class IndexController {
-    @GET();
+    @GET()
     async actionList(ctx: Context):Promise<void> {
         const data = await ctx.render('index', {
             data: 'server data!!'

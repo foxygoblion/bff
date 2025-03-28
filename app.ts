@@ -1,10 +1,11 @@
 import {addAliases} from 'module-alias';
+import path from 'path';
 addAliases({
     '@root': __dirname,
-    '@interfaces': '${__dirname}/interface',
-    '@config': '${__dirname}/config',
-    '@middlewares': '${__dirname}/middlewares',
-})
+    '@interfaces': path.join(__dirname, 'interface'),
+    '@config': path.join(__dirname, 'config'),
+    '@middlewares': path.join(__dirname, 'middlewares'),
+});
 import Koa from 'koa';
 import config from '@config/index';
 import render from 'koa-swig';
@@ -17,7 +18,7 @@ import { configure, getLogger } from 'log4js'
 
 
 configure({
-    appenders: { cheese: {type: 'file', filename: '${__dirname}/log/yd.log'}},
+    appenders: { cheese: {type: 'file', filename: path.join(__dirname, 'log/yd.log')}},
     categories: {default: {appenders: ['cheese'], level: 'error'}},
 });
 const app = new Koa();
