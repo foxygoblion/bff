@@ -2,9 +2,9 @@ import {addAliases} from 'module-alias';
 import path from 'path';
 addAliases({
     '@root': __dirname,
-    '@interfaces': path.join(__dirname, 'interface'),
-    '@config': path.join(__dirname, 'config'),
-    '@middlewares': path.join(__dirname, 'middlewares'),
+    '@interfaces': `${__dirname}/interface`,
+    '@config': `${__dirname}/config`,
+    '@middlewares': `${__dirname}/middlewares`,
 });
 import Koa from 'koa';
 import config from '@config/index';
@@ -18,7 +18,7 @@ import { configure, getLogger } from 'log4js'
 
 
 configure({
-    appenders: { cheese: {type: 'file', filename: path.join(__dirname, 'log/yd.log')}},
+    appenders: { cheese: {type: 'file', filename: `${__dirname}/logs/yd.log`}},
     categories: {default: {appenders: ['cheese'], level: 'error'}},
 });
 const app = new Koa();
@@ -40,7 +40,7 @@ app.use(serve(staticDir));
 const container = createContainer();
 
 // 所有的可以被注入的代码都在container中
-container.loadModules(['${__dirname}/service/*.ts'], {
+container.loadModules([`${__dirname}/service/*.ts`], {
     formatName: 'camelCase',
     resolverOptions:{
         lifetime: Lifetime.SCOPED
@@ -54,7 +54,7 @@ app.use(scopePerRequest(container));
 ErrorHandler.error(app, logger);
 
 // 加载所有路由,让所有路由全部生效
-app.use(loadControllers('${__dirname/routers/*.ts}'));
+app.use(loadControllers(`${__dirname}/service/*.ts`));
 
 app.listen(port, ()=>{
     console.log('京程一灯Servier BFF启动成功');
