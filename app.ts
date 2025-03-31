@@ -54,7 +54,7 @@ app.use(scopePerRequest(container));
 ErrorHandler.error(app, logger);
 
 // 加载所有路由,让所有路由全部生效
-app.use(loadControllers(`${__dirname}/service/*.ts`));
+app.use(loadControllers(`${__dirname}/routers/*.ts`));
 
 app.listen(port, ()=>{
     console.log('京程一灯Servier BFF启动成功');
