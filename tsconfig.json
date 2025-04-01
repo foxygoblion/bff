@@ -13,7 +13,8 @@
     "paths": {
       "@interface/*": ["interface/*"],
       "@config/*": ["config/*"],
-      "@middlewares/*": ["middlewares/*"]
+      "@middlewares/*": ["middlewares/*"],
+      "@services/*": ["services/*"]
     },
     "lib": ["ES2015", "DOM"]
   },

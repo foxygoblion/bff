@@ -1,8 +1,7 @@
 import {GET, route} from 'awilix-koa';
 import Router from 'koa-router';
 import { IApi} from '@interface/IApi'
-import ApiService from 'services/ApiService';
-// import ApiService from 'services/ApiService';
+import ApiService from '../services/ApiService';
 
 @route('/api')
 class ApiController {
@@ -23,3 +22,4 @@ class ApiController {
     };
   }
 }
+export default ApiController;

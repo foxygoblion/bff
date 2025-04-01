@@ -8,8 +8,18 @@ class ErrorHandler {
             try {
                 await next()
             } catch (e) {
-                logger.error(e);
-                ctx.body = '500requests~recovering';
+                logger.error('Server Error:', e);
+                
+                // 设置状态码为500
+                ctx.status = 500;
+                // 提供更结构化的错误响应
+                ctx.body = {
+                    success: false,
+                    message: '服务器内部错误',
+                    error: process.env.NODE_ENV === 'production' 
+                        ? '服务器处理请求时发生错误'
+                        : e.message || '未知错误'
+                };
             }
         });
 
@@ -18,7 +28,7 @@ class ErrorHandler {
             if (ctx.status !== 404) {
                 return;
             }
-            ctx.body = '<script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybird/app/404/search_children.js" charset="utf-8"></s>'
+            ctx.body = '<script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8"></script>';
         });
     }
 }

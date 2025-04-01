@@ -5,6 +5,7 @@ addAliases({
     '@interfaces': `${__dirname}/interface`,
     '@config': `${__dirname}/config`,
     '@middlewares': `${__dirname}/middlewares`,
+    '@services': `${__dirname}/services`,
 });
 import Koa from 'koa';
 import config from '@config/index';
@@ -23,6 +24,7 @@ configure({
 });
 const app = new Koa();
 const logger = getLogger('cheese');
+logger.info('Some informational message');
 const {port, viewDir, memoryFlag, staticDir} = config;
 app.context.render = co.wrap(
     render({
@@ -40,7 +42,7 @@ app.use(serve(staticDir));
 const container = createContainer();
 
 // 所有的可以被注入的代码都在container中
-container.loadModules([`${__dirname}/service/*.ts`], {
+container.loadModules([`${__dirname}/services/*.ts`], {
     formatName: 'camelCase',
     resolverOptions:{
         lifetime: Lifetime.SCOPED
